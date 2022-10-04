@@ -1,8 +1,8 @@
-import NewsItem from "../newsItem/newsItem";
-import new1 from "@/assets/image/new1.png";
-import new2 from "@/assets/image/news2.jpg";
+import NewsItem from "~/components/News/NewsItem";
+import New1 from "~/assets/image/new1.png";
+import New2 from "~/assets/image/news2.jpg";
 import { Button } from "react-bootstrap";
-import styles from "./NewsHomePage.module.scss";
+import styles from "./styles.module.scss";
 import { useRouter } from "next/router";
 import { StaticImageData } from "next/image";
 
@@ -18,19 +18,20 @@ const NewsHomePage = () => {
     {
       id: 1,
       title: "KHÁCH HÀNG NÓI NHƯ THẾ NÀO VỀ TINH CHẤT TRỊ VIÊM NANG LÔNG LIGI",
-      thumbnail: new1,
+      thumbnail: New1,
     },
     {
       id: 2,
       title: "KHÁCH HÀNG NÓI NHƯ THẾ NÀO VỀ TINH CHẤT TRỊ VIÊM NANG LÔNG LIGI",
-      thumbnail: new2,
+      thumbnail: New2,
     },
     {
       id: 3,
       title: "KHÁCH HÀNG NÓI NHƯ THẾ NÀO VỀ TINH CHẤT TRỊ VIÊM NANG LÔNG LIGI",
-      thumbnail: new1,
+      thumbnail: New2,
     }
   ];
+
   const getListPostComponent = () => {
     return listPost.map((item) => (
       <NewsItem

@@ -1,7 +1,7 @@
-import styles from './footer.module.scss';
+import styles from './styles.module.scss';
 import Image from "next/image";
-import logo from "@/assets/image/logo.png";
-import footer from "@/assets/image/footer.png";
+import logo from "~/assets/image/logo.png";
+import footer from "~/assets/image/footer.png";
 import { Facebook, Mail, MapPin } from "react-feather";
 const Footer = () => {
   return (

@@ -1,5 +1,5 @@
-import Header from "../commons/header/header";
-import Footer from "../commons/footer/footer";
+import Header from "../Commons/Header";
+import Footer from "../Commons/Footer";
 export default function Layout({ children }: any) {
   return (
     <>

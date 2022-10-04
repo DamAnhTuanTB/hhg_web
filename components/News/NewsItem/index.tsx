@@ -1,5 +1,5 @@
 import Image, { StaticImageData } from "next/image";
-import styles from "./NewsItem.module.scss";
+import styles from "./styles.module.scss";
 import { ArrowRight } from "react-feather";
 const NewsItem: React.FC<{ title: string; thumbnail: StaticImageData }> = (
   props
