@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
-import Slider from "~/components/home/slider/slider";
-import NewsHomePage from "~/components/news/newsHomePage/newsHomePage";
+import Slider from "~/components/Home/Slider";
+import NewsHomePage from "~/components/Home/NewsHomePage";
 
 const Home = () => {
   return (

@@ -1,6 +1,6 @@
-import NewsItem from "~/components/news/newsItem/newsItem";
-import new1 from "@/assets/image/new1.png";
-import new2 from "@/assets/image/news2.jpg";
+import NewsItem from "~/components/News/NewsItem";
+import new1 from "~/assets/image/new1.png";
+import new2 from "~/assets/image/news2.jpg";
 import { useRouter } from "next/router";
 import { StaticImageData } from "next/image";
 
