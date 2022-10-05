@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { Facebook, Mail, MapPin } from "react-feather";
 import { Col, Container, Row } from "react-bootstrap";
 
 import styles from "./styles.module.scss";
@@ -30,9 +29,12 @@ const Footer = () => {
           </Col>
           <Col className={styles.footerContact}>
             <div>
-              <Facebook className={styles.footerContactIcon}></Facebook>
-              <Mail className={styles.footerContactIcon}></Mail>
-              <MapPin className={styles.footerContactIcon}></MapPin>
+              {
+                /*   <Facebook className={styles.footerContactIcon}></Facebook>
+                <Mail className={styles.footerContactIcon}></Mail>
+                <MapPin className={styles.footerContactIcon}></MapPin>
+                */
+              }
             </div>
             <div className={styles.footerContactIcon}>
               <Image src={footer} alt="footer" />

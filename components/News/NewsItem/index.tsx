@@ -1,6 +1,5 @@
 import Image, { StaticImageData } from "next/image";
 import styles from "./styles.module.scss";
-import { ArrowRight } from "react-feather";
 const NewsItem: React.FC<{ title: string; thumbnail: StaticImageData }> = (
   props
 ) => {
@@ -13,7 +12,6 @@ const NewsItem: React.FC<{ title: string; thumbnail: StaticImageData }> = (
       </div>
       <div className={`d-flex`}>
         <div>Xem thêm</div>
-        <ArrowRight></ArrowRight>
       </div>
     </div>
   );

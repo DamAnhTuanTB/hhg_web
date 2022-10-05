@@ -1,18 +1,22 @@
 import Image from "next/image";
 import { Col, Container, Row } from "react-bootstrap";
 import Slider from "react-slick";
+import { FaChevronRight, FaChevronLeft } from 'react-icons/fa';
 
 import styles from "./styles.module.scss";
 import New from "~/assets/image/may-xoa-xam-laser-3-1.jpg";
+
+import newsData from './data.json';
 
 function SampleNextArrow(props: any) {
   const { className, style, onClick } = props;
   return (
     <div
       className={className}
-      style={{ ...style, background: "red" }}
       onClick={onClick}
-    />
+    >
+      <FaChevronRight />
+    </div>
   );
 }
 
@@ -21,15 +25,16 @@ function SamplePrevArrow(props: any) {
   return (
     <div
       className={className}
-      style={{ ...style, background: "green" }}
       onClick={onClick}
-    />
+    >
+      <FaChevronLeft />
+    </div>
   );
 }
 
 const NewsHomePage = () => {
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
@@ -50,119 +55,25 @@ const NewsHomePage = () => {
         </p>
 
         <Slider className={styles.slider} {...settings}>
-          <div className={styles.cardItem}>
-            <div className={styles.image}>
-              <Image src={New} width="100%" height="100%" alt="image" />
-            </div>
+          {
+            newsData.news.map((item) => (
+              <div className={styles.cardItem} key={item.title}>
+                <div className={styles.image}>
+                  <Image src={item.image} width="100%" height="100%" alt="image" />
+                </div>
 
-            <div className={styles.content}>
-              <h5 className={styles.title}>
-                Các loại máy xoá xăm lông mày hiệu quả nhất hiện nay
-              </h5>
+                <div className={styles.content}>
+                  <h5 className={styles.title}>
+                    {item.title}
+                  </h5>
 
-              <p>
-                Nhu cầu làm đẹp vẫn tăng cao nhờ vào sự phát triển và hiện đại
-                của cuộc sống. Xoá xăm lông mày{" "}
-              </p>
-            </div>
-          </div>
-
-          <div className={styles.cardItem}>
-            <div className={styles.image}>
-              <Image src={New} width="100%" height="100%" alt="image" />
-            </div>
-
-            <div className={styles.content}>
-              <h5 className={styles.title}>
-                Các loại máy xoá xăm lông mày hiệu quả nhất hiện nay
-              </h5>
-
-              <p className={styles.detail}>
-                Nhu cầu làm đẹp vẫn tăng cao nhờ vào sự phát triển và hiện đại
-                của cuộc sống. Xoá xăm lông mày{" "}
-              </p>
-            </div>
-          </div>
-          <div className={styles.cardItem}>
-            <div className={styles.image}>
-              <Image src={New} width="100%" height="100%" alt="image" />
-            </div>
-
-            <div className={styles.content}>
-              <h5 className={styles.title}>
-                Các loại máy xoá xăm lông mày hiệu quả nhất hiện nay
-              </h5>
-
-              <p>
-                Nhu cầu làm đẹp vẫn tăng cao nhờ vào sự phát triển và hiện đại
-                của cuộc sống. Xoá xăm lông mày{" "}
-              </p>
-            </div>
-          </div>
-          <div className={styles.cardItem}>
-            <div className={styles.image}>
-              <Image src={New} width="100%" height="100%" alt="image" />
-            </div>
-
-            <div className={styles.content}>
-              <h5 className={styles.title}>
-                Các loại máy xoá xăm lông mày hiệu quả nhất hiện nay
-              </h5>
-
-              <p>
-                Nhu cầu làm đẹp vẫn tăng cao nhờ vào sự phát triển và hiện đại
-                của cuộc sống. Xoá xăm lông mày{" "}
-              </p>
-            </div>
-          </div>
-          <div className={styles.cardItem}>
-            <div className={styles.image}>
-              <Image src={New} width="100%" height="100%" alt="image" />
-            </div>
-
-            <div className={styles.content}>
-              <h5 className={styles.title}>
-                Các loại máy xoá xăm lông mày hiệu quả nhất hiện nay
-              </h5>
-
-              <p>
-                Nhu cầu làm đẹp vẫn tăng cao nhờ vào sự phát triển và hiện đại
-                của cuộc sống. Xoá xăm lông mày{" "}
-              </p>
-            </div>
-          </div>
-          <div className={styles.cardItem}>
-            <div className={styles.image}>
-              <Image src={New} width="100%" height="100%" alt="image" />
-            </div>
-
-            <div className={styles.content}>
-              <h5 className={styles.title}>
-                Các loại máy xoá xăm lông mày hiệu quả nhất hiện nay
-              </h5>
-
-              <p>
-                Nhu cầu làm đẹp vẫn tăng cao nhờ vào sự phát triển và hiện đại
-                của cuộc sống. Xoá xăm lông mày{" "}
-              </p>
-            </div>
-          </div>
-          <div className={styles.cardItem}>
-            <div className={styles.image}>
-              <Image src={New} width="100%" height="100%" alt="image" />
-            </div>
-
-            <div className={styles.content}>
-              <h5 className={styles.title}>
-                Các loại máy xoá xăm lông mày hiệu quả nhất hiện nay
-              </h5>
-
-              <p>
-                Nhu cầu làm đẹp vẫn tăng cao nhờ vào sự phát triển và hiện đại
-                của cuộc sống. Xoá xăm lông mày{" "}
-              </p>
-            </div>
-          </div>
+                  <p className={styles.detail}>
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            ))
+          }
         </Slider>
       </Row>
     </Container>
