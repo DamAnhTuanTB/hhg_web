@@ -2,16 +2,15 @@ import React, { FC } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 
 import styles from "./styles.module.scss";
-import ImageMachine from "~/assets/image/bg-tri-nam-3.png";
 import CardItem from "./CardItem";
 
-import dataAgentSystem from "../data.json";
+import dataAgentSystem from "./data.json";
 
 const AgentSystem: FC = () => {
   return (
     <Container>
       <Row className={styles.agentSystem}>
-        <h2 className={styles.titleAgentSystem}>HỆ THỐNG ĐẠI LÝ</h2>
+        <h2 className="title-header">HỆ THỐNG ĐẠI LÝ</h2>
 
         <Col xs={12} md={6} className={styles.imageMachine}>
           <div className={styles.image} />
