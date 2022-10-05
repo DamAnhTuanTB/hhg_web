@@ -1,0 +1,30 @@
+.agentSystem {
+  .titleAgentSystem {
+    color: rgb(255, 0, 0);
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .imageMachine {
+    .image {
+      background: url(https://hpmed.vn/wp-content/uploads/2022/08/bg-tri-nam-3.png) no-repeat;
+      background-size: contain;
+      width: 81%;
+      height: 100%;
+    }
+  }
+
+  .content {
+    .imageContent {
+      .image {
+        background: url(https://hpmed.vn/wp-content/uploads/2022/08/icon-ngoi-sao.png) no-repeat;
+        background-size: contain;
+        width: 60px;
+        margin-bottom: 1em;
+        max-width: 100%;
+        position: relative;
+      }
+    }
+  }
+}
