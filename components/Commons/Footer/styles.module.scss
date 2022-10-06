@@ -9,12 +9,18 @@
     flex-direction: column;
     align-items: flex-end;
     justify-content: space-around;
-    .icon {
-      color: #414141;
-      font-size: 2rem;
 
-      &:hover {
-        color: #460000 !important;
+    .iconsContact {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      .icon {
+        color: #414141;
+        font-size: 2rem;
+
+        &:hover {
+          color: #460000 !important;
+        }
       }
     }
   }
@@ -22,5 +28,36 @@
   .footerContain {
     align-items: center;
     height: 15.5rem;
+
+    @media screen and (max-width: 576px) {
+      height: auto;
+
+      .footerLogo {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1rem;
+      }
+
+      .infoContact {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .infoCompany {
+          text-align: center;
+        }
+      }
+
+      .footerContact {
+        align-items: center;
+        .iconsContact {
+          justify-content: space-around;
+        }
+      }
+
+      .footerContactIcon {
+        margin-top: 1rem;
+      }
+    }
   }
 }
