@@ -13,12 +13,12 @@ const Footer = () => {
     <footer className={styles.footer}>
       <Container>
         <Row className={styles.footerContain}>
-          <Col xs={12} sm={4} className={styles.footerLogo}>
+          <Col xs={12} sm={2} className={styles.footerLogo}>
             <Image src={LogoImage} width="100%" height="100%" alt="logo hhg" />
           </Col>
 
-          <Col xs={12} sm={4}>
-            <b>
+          <Col className={styles.infoContact} xs={12} sm={6}>
+            <b className={styles.infoCompany}>
               <p>THÔNG TIN LIÊN HỆ NỘI THẤT ART:</p>
               <p>Công ty TNHH Tư Vấn Thiết Kế và Xây Dựng NTA</p>
             </b>
@@ -35,7 +35,7 @@ const Footer = () => {
           </Col>
 
           <Col xs={12} sm={4} className={styles.footerContact}>
-            <div>
+            <div className={styles.iconsContact}>
               <a
                 href="#"
                 className={styles.icon}
@@ -59,10 +59,6 @@ const Footer = () => {
               >
                 <FaMapMarkerAlt />
               </a>
-              {/*   <Facebook className={styles.footerContactIcon}></Facebook>
-                <Mail className={styles.footerContactIcon}></Mail>
-                <MapPin className={styles.footerContactIcon}></MapPin>
-                */}
             </div>
 
             <div className={styles.footerContactIcon}>
