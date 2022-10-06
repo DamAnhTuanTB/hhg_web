@@ -1,48 +1,69 @@
+import { FC } from "react";
 import Image from "next/image";
 import { Col, Container, Row } from "react-bootstrap";
 import Slider from "react-slick";
-import { FaChevronRight, FaChevronLeft } from 'react-icons/fa';
+import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
 
 import styles from "./styles.module.scss";
-import New from "~/assets/image/may-xoa-xam-laser-3-1.jpg";
+import data from "./data.json";
+import SliderItem from "./SliderItem";
 
-import newsData from './data.json';
+interface IArrowSliderProps {
+  className?: string;
+  onClick?: any;
+}
 
-function SampleNextArrow(props: any) {
-  const { className, style, onClick } = props;
+const SampleNextArrow: FC<IArrowSliderProps> = (props) => {
+  const { className, onClick } = props;
   return (
-    <div
-      className={className}
-      onClick={onClick}
-    >
+    <div className={className} onClick={onClick}>
       <FaChevronRight />
     </div>
   );
-}
+};
 
-function SamplePrevArrow(props: any) {
-  const { className, style, onClick } = props;
+const SamplePrevArrow: FC<IArrowSliderProps> = (props) => {
+  const { className, onClick } = props;
   return (
-    <div
-      className={className}
-      onClick={onClick}
-    >
+    <div className={className} onClick={onClick}>
       <FaChevronLeft />
     </div>
   );
-}
+};
 
-const NewsHomePage = () => {
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 3,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
-  };
+const settings = {
+  dots: false,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 3,
+  slidesToScroll: 3,
+  nextArrow: <SampleNextArrow />,
+  prevArrow: <SamplePrevArrow />,
+  responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        speed: 500,
+        dots: false,
+        infinite: true,
+      },
+    },
+    {
+      breakpoint: 375,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        speed: 500,
+        dots: false,
+        infinite: true,
+      },
+    },
+  ],
+};
 
+const NewsHomePage: FC = () => {
   return (
     <Container>
       <Row className={styles.newsHome}>
@@ -55,28 +76,13 @@ const NewsHomePage = () => {
         </p>
 
         <Slider className={styles.slider} {...settings}>
-          {
-            newsData.news.map((item) => (
-              <div className={styles.cardItem} key={item.title}>
-                <div className={styles.image}>
-                  <Image src={item.image} width="100%" height="100%" alt="image" />
-                </div>
-
-                <div className={styles.content}>
-                  <h5 className={styles.title}>
-                    {item.title}
-                  </h5>
-
-                  <p className={styles.detail}>
-                    {item.description}
-                  </p>
-                </div>
-              </div>
-            ))
-          }
+          {data.news.map((item) => (
+            <SliderItem key={item.title} slider={item} />
+          ))}
         </Slider>
       </Row>
     </Container>
   );
 };
+
 export default NewsHomePage;

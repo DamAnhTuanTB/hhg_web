@@ -24,18 +24,22 @@
         visibility: hidden;
         transition: all 0.5s;
 
+        &::before {
+          display: none;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          width: 1px;
+          height: 100%;
+          top: 0;
+        }
+
         &.slick-next {
           right: 0.7rem;
-          &::before {
-            display: none;
-          }
 
           &::after {
-            content: "";
-            position: absolute;
-            width: 1px;
-            height: 100%;
-            top: 0;
             left: -1px;
             box-shadow: -5px 0px 10px rgb(0 0 0 / 50%);
           }
@@ -44,16 +48,7 @@
         &.slick-prev {
           left: 0.7rem;
 
-          &::before {
-            display: none;
-          }
-
           &::after {
-            content: "";
-            position: absolute;
-            width: 1px;
-            height: 100%;
-            top: 0;
             right: -1px;
             box-shadow: 5px 0px 10px rgb(0 0 0 / 50%);
           }
@@ -67,31 +62,6 @@
           transition: all 0.5s forwards;
           opacity: 1;
           visibility: visible;
-        }
-      }
-    }
-
-    .cardItem {
-      padding: 0 2rem 2rem 2rem;
-      .image {
-        height: 150px;
-
-        & > span {
-          width: 100% !important;
-          height: 100% !important;
-        }
-      }
-
-      .content {
-        margin: 0.5rem 0;
-        .title {
-          color: #140d00;
-          font-size: 1.15rem;
-          font-weight: 700;
-        }
-
-        .detail {
-          font-size: 0.9rem;
         }
       }
     }
