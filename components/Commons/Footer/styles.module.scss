@@ -1,24 +1,26 @@
 .footer {
-    border-top: 1px solid #eaeaea;
-    min-height: 300px;
-    background-color: #baa62f;
-    .footerLogo {
-    }
-    .footerInfo {
-      color: #190301;
-      font-size: inherit;
-    }
-    .footerContact {
-      .footerContactIcon {
-        color: #190301;
-      }
-      .footerContactImage {
-        cursor: pointer;
-      }
-      .footerContactIcon:hover {
-        color: white;
-        cursor: pointer;
+  background-color: #baa62f;
+  color: #190301;
+  padding: 3rem 0;
+
+  .footerContact {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+    .icon {
+      color: #414141;
+      font-size: 2rem;
+
+      &:hover {
+        color: #460000 !important;
       }
     }
+  }
+
+  .footerContain {
+    align-items: center;
+    height: 15.5rem;
+  }
 }
-  
