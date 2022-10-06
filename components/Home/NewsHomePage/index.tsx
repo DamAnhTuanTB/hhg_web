@@ -1,66 +1,88 @@
-import NewsItem from "~/components/News/NewsItem";
-import New1 from "~/assets/image/new1.png";
-import New2 from "~/assets/image/news2.jpg";
-import { Button } from "react-bootstrap";
-import styles from "./styles.module.scss";
-import { useRouter } from "next/router";
-import { StaticImageData } from "next/image";
+import { FC } from "react";
+import Image from "next/image";
+import { Col, Container, Row } from "react-bootstrap";
+import Slider from "react-slick";
+import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
 
-export interface PostItem {
-  id: number;
-  title: string;
-  thumbnail: StaticImageData;
+import styles from "./styles.module.scss";
+import data from "./data.json";
+import SliderItem from "./SliderItem";
+
+interface IArrowSliderProps {
+  className?: string;
+  onClick?: any;
 }
 
-const NewsHomePage = () => {
-  const router = useRouter();
-  const listPost: PostItem[] = [
-    {
-      id: 1,
-      title: "KHÁCH HÀNG NÓI NHƯ THẾ NÀO VỀ TINH CHẤT TRỊ VIÊM NANG LÔNG LIGI",
-      thumbnail: New1,
-    },
-    {
-      id: 2,
-      title: "KHÁCH HÀNG NÓI NHƯ THẾ NÀO VỀ TINH CHẤT TRỊ VIÊM NANG LÔNG LIGI",
-      thumbnail: New2,
-    },
-    {
-      id: 3,
-      title: "KHÁCH HÀNG NÓI NHƯ THẾ NÀO VỀ TINH CHẤT TRỊ VIÊM NANG LÔNG LIGI",
-      thumbnail: New2,
-    }
-  ];
-
-  const getListPostComponent = () => {
-    return listPost.map((item) => (
-      <NewsItem
-        key={item.id}
-        title={item.title}
-        thumbnail={item.thumbnail}
-      ></NewsItem>
-    ));
-  };
-  const listPostComponent = getListPostComponent();
-  const toNewsPage = () => {
-    router.push("/news");
-  };
+const SampleNextArrow: FC<IArrowSliderProps> = (props) => {
+  const { className, onClick } = props;
   return (
-    <div>
-      <div className={`row d-flex justify-content-center h1`}>
-        TIN TỨC - SỰ KIỆN
-      </div>
-      <div className={`row p-2 p-md-5`}>{listPostComponent}</div>
-      <div className={`row d-flex justify-content-center pb-5`}>
-        <Button
-          onClick={toNewsPage}
-          variant={`secondary`}
-          className={`col-3 ${styles.listNewsMore}`}
-        >
-          Xem thêm
-        </Button>
-      </div>
+    <div className={className} onClick={onClick}>
+      <FaChevronRight />
     </div>
   );
 };
+
+const SamplePrevArrow: FC<IArrowSliderProps> = (props) => {
+  const { className, onClick } = props;
+  return (
+    <div className={className} onClick={onClick}>
+      <FaChevronLeft />
+    </div>
+  );
+};
+
+const settings = {
+  dots: false,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 3,
+  slidesToScroll: 3,
+  nextArrow: <SampleNextArrow />,
+  prevArrow: <SamplePrevArrow />,
+  responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        speed: 500,
+        dots: false,
+        infinite: true,
+      },
+    },
+    {
+      breakpoint: 375,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        speed: 500,
+        dots: false,
+        infinite: true,
+      },
+    },
+  ],
+};
+
+const NewsHomePage: FC = () => {
+  return (
+    <Container>
+      <Row className={styles.newsHome}>
+        <h2 className="title-header">TIN TỨC MỚI</h2>
+
+        <p className={styles.description}>
+          Chuyên mục cung cấp các thông tin về các sản phẩm làm đẹp máy móc
+          trang thiết bị phục vụ cho lĩnh vực spa làm đẹp, thông tin về thị
+          trường cập nhật liên tục mỗi ngày.
+        </p>
+
+        <Slider className={styles.slider} {...settings}>
+          {data.news.map((item) => (
+            <SliderItem key={item.title} slider={item} />
+          ))}
+        </Slider>
+      </Row>
+    </Container>
+  );
+};
+
 export default NewsHomePage;
