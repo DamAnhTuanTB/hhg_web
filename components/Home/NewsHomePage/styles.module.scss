@@ -54,6 +54,24 @@
           }
         }
       }
+
+      .slick-slide {
+        &:nth-child(even) {
+          padding: 0 1rem;
+        }
+
+        @media screen and (max-width: 768px) {
+          &:nth-child(even) {
+            padding-right: 0;
+          }
+        }
+
+        @media screen and (max-width: 375px) {
+          &:nth-child(even) {
+            padding: 0;
+          }
+        }
+      }
     }
 
     &:hover {

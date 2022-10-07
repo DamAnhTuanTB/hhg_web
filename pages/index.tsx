@@ -6,9 +6,9 @@ import AgentSystem from "~/components/Home/AgentSystem";
 import Partner from "~/components/Home/Partner";
 import Introduction from "~/components/Home/Introduction";
 import Services from "~/components/Home/Services";
-import CustomerFeedback from "~/components/Home/CustomerFeedback";
 import Product from '~/components/Home/Product';
 import Solution from '~/components/Home/Solution';
+import Feedback from '~/components/Home/Feedback';
 
 const Home: React.FC = () => {
   return (
@@ -21,7 +21,7 @@ const Home: React.FC = () => {
       <AgentSystem />
       <Partner />
       <NewsHomePage />
-      <CustomerFeedback />
+      <Feedback />
     </>
   );
 };
