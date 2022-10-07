@@ -8,17 +8,15 @@ const Services: FC = () => {
     return (
         <div className={styles.services}>
             <Container>
+                <h2 className="title-header white-text">DỊCH VỤ NỔI BẬT</h2>
                 <Row>
-                    <h2 className="title-header white-text">DỊCH VỤ NỔI BẬT</h2>
-                    <Row>
-                        {
-                            dataServices.services.map((value, index) => (
-                                <Col xs={12} sm={6} md={3} key={index}>
-                                    <ServiceItem image={value.image} header={value.header} text={value.text} index={index} />
-                                </Col>
-                            ))
-                        }
-                    </Row>
+                    {
+                        dataServices.services.map((value, index) => (
+                            <Col xs={12} sm={6} md={3} key={index} className="mt-5 mt-lg-4">
+                                <ServiceItem image={value.image} header={value.header} text={value.text} index={index} />
+                            </Col>
+                        ))
+                    }
                 </Row>
             </Container>
         </div>

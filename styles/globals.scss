@@ -34,7 +34,7 @@ body {
   text-align: center;
   font-size: 2rem;
   font-weight: 1000;
-  margin: 2rem 0px;
+  padding: 2rem 0px 1rem 0px;
 }
 
 .white-text{
@@ -43,4 +43,8 @@ body {
 
 .display-mark{
   opacity: 1 !important;
+}
+
+.row{
+  justify-content: center;
 }
