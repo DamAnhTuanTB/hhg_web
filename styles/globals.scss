@@ -9,6 +9,8 @@ body {
   margin: 0;
   font-family: "Quicksand", sans-serif;
   color: #4f4f4f;
+  width: 100%;
+  overflow-x: unset;
 
   @media screen and (max-width: 768px) {
     font-size: 14px;
@@ -43,8 +45,4 @@ body {
 
 .display-mark{
   opacity: 1 !important;
-}
-
-.row{
-  justify-content: center;
 }
